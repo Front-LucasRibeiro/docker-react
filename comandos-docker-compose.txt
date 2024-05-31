@@ -1,0 +1,5 @@
+CONTAINER
+-----------------------------------------------------------------------------
+docker-compose up   - executar container, ou cria o container caso não exista
+docker-compose down - parar container 
+docker-compose up --watch - cria o container caso não existe, cria a imagem do meu app pelo dockerfile, assistir as mudanças de arquivos locais

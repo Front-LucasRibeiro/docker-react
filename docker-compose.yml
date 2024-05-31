@@ -1,0 +1,32 @@
+services:
+  backend:
+      container_name: nest-app
+      image: nest
+      build:
+        context: ./backend
+        dockerfile: Dockerfile
+      ports:
+        - "3000:3000"
+      develop:
+        watch:
+          - path: ./backend
+            action: sync
+            target: /app
+            ignore: 
+              - node_modules/
+              
+  frontend:
+    container_name: react-app
+    image: react
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    develop:
+      watch:
+        - path: ./frontend
+          action: sync
+          target: /app
+          ignore: 
+            - node_modules/    

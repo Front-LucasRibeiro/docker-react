@@ -1,0 +1,9 @@
+{
+  "name": "docker",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "docker-compose up --watch",
+    "build": "docker-compose up --build"
+  },
+  "license": "ISC"
+}

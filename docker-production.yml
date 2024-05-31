@@ -1,0 +1,18 @@
+services:
+  app:
+
+  reverse-proxy:
+    image: traefik
+    container_name: traefik
+    restart: unless-stopped  # Reiniciar automaticamente em caso de falhas
+    ports:
+      - "80:80"  # Porta HTTP para o proxy reverso
+      - "443:443"  # Porta HTTPS para o proxy reverso (opcional)
+    volumes:
+      - ./traefik.yml:/etc/traefik/traefik.yml:ro  # Mapear o arquivo de configuração Traefik
+    networks:
+      - external_network  # Substitua por sua rede externa (se aplicável)
+
+networks:
+  external_network:
+    external: true  # Rede externa existente

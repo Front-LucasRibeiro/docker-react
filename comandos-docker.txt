@@ -1,0 +1,82 @@
+docker rm <id container> - remover container
+
+docker run <image> - executar uma imagem, fazendo o download de uma imagem primeiro verificando se ela existe localmente, caso contrário é buscada no docker hub, para criação de um container a partir dessa imagem
+
+docker info - verificar se o docker está em execução
+
+docker run -it ubuntu - deixa o terminal disponivel para interação
+
+docker-compose up -d - iniciar containers
+
+docker-compose ps - verificar containers em execução
+
+docker pull wordpress - download de uma imagem no docker hub
+
+docker stop sweet_johnson - parar um container
+
+docker run -d -p 8000:80 --name sweet_johnson wordpress - recriar container com mapeamento de porta
+
+docker run -di ubuntu - cria container ativo e disponibiliza terminal
+
+docker start -ai <container> iniciar um container
+
+docker build -t mysql -f <caminho do dockerfile> .   - construir uma imagem -t -> tag para identificar uma imagem
+
+docker exec - podemos ler um arquivo para executar dentro do container
+
+docker search tomcat - faz pesquisa por imagens
+
+docker container run -it debian bash - rodar container no modo de interação
+
+docker logs -f <id container> - ver logs
+
+docker ps -a - ver todos container, inclusive os que se encontram parados
+
+docker volume create - persistir dados
+
+docker container prune - remover todos containers de uma vez
+
+docker stop -t 0 <id container> - para imediatamente o container em 0 segundos (por padrão tem uma demora de 10 segundos)
+
+docker kill <container> - para imediatamente container
+
+docker pause <container> - pausar um container
+
+docker unpause - retomar container
+
+
+
+IMAGENS
+--------------------------------------------------------------------------------------------------------
+docker build -t frontend-react . - construindo uma imagem com nome, ou reconstruir com o mesmo nome
+docker images - listagem de images
+docker rmi <imagem>
+
+
+CONTAINER
+--------------------------------------------------------------------------------------------------------
+docker ps - listagem de containers
+docker container ls -a
+docker run -p 5000:5173 react - rodar conteiner 
+docker run --name nome-do-container nome-da-imagem - criar container com nome a partir de uma imagem
+docker run --name meu-container -p 8080:80 -it minha-imagem -criar container passando o mapeamento de porta
+docker stop <container> - pausar container
+docker rm <container> remover container
+docker rename nomeatual nomealterado - renomear container
+
+
+PORTAS
+-----------------------------------------------------------------------------------------------------------
+netstat -a -n -o - ver portas disponiveis no windows, portas acimas de 1024 podem ser usados em localhost pelo docker
+netstat -a -n -o | findstr :3003 - verificar se uma porta esta em uso, se não houver saida a porta esta liberada para uso
+docker port <container> - verificar porta do container
+
+
+VOLUMES
+-------------------------------------------------------------------------------------------------------------------------
+docker run -v ${PWD}:/app -v /app/node_modules -p 3003:8081 --name react-app react - criando container com volume
+docker volume create react-volume
+
+
+NETWORK
+------------------------------------------------------------------------------------------------------------------
