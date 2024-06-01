@@ -80,3 +80,6 @@ docker volume create react-volume
 
 NETWORK
 ------------------------------------------------------------------------------------------------------------------
+docker network create --driver bridge minha-rede - criando uma rede
+docker network ls - ver lista de redes
+

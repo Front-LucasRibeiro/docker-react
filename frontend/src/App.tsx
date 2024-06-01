@@ -26,7 +26,7 @@ function App() {
         </p>
       </div>
       <p className="read-the-docs">
-        88
+        LKSSS cc
       </p>
     </>
   )

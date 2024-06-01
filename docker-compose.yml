@@ -23,6 +23,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - "5173:5173"
+    depends_on:
+      - backend
     develop:
       watch:
         - path: ./frontend
@@ -30,3 +32,4 @@ services:
           target: /app
           ignore: 
             - node_modules/    
+
